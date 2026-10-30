@@ -1,17 +1,14 @@
-import { useState } from 'react'
-import heroImg from './assets/hero.png'
-import reactLogo from './assets/react.svg'
-import viteLogo from './assets/vite.svg'
-import './App.css'
+import Carousel from "./Carousel/Carousel";
+
+const images = [
+  "https://placehold.co/800x450/4f46e5/ffffff?text=1",
+  "https://placehold.co/800x450/0ea5e9/ffffff?text=2",
+  "https://placehold.co/800x450/10b981/ffffff?text=3",
+  "https://placehold.co/800x450/f59e0b/ffffff?text=4",
+];
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-    
-    </>
-  )
+  return <Carousel images={images} intervalSeconds={3} />;
 }
 
-export default App
+export default App;
