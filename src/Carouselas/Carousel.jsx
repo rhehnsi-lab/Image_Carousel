@@ -2,9 +2,15 @@
  import CarouselItem from "./CarouselItem";
  function Carousel({images,intervalSeconde=3}){
     const [selected, setSelcted] = useState(0)
+
     function Move(num){
       setSelcted((selected)=>(selected+num+images.length)%images.length)
     }
+    useEffect(()=>{
+      const timer=setInterval(()=>{
+         Move(1)},intervalSeconde*1000)
+         return () =>clearInterval(timer)},[images.length,intervalSeconde])
+    
 
  return(
     <>
