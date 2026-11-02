@@ -3,7 +3,7 @@
  function Carousel({images,intervalSeconde=3}){
     const [selected, setSelcted] = useState(0)
     function Move(num){
-      setSelcted((selected)=>(selected+num))
+      setSelcted((selected)=>(selected+num+images.length)%images.length)
     }
 
  return(
@@ -16,7 +16,7 @@
               
                />))}
        <button onClick={() => move(1)}>{">"}</button>
-       
+
                {images.map((_,index)=>(
                   <button key={index} onClick={()=>setSelcted(index)}
                   className={index===selected&&"activ"}
