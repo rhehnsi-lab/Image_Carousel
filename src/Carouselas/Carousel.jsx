@@ -7,9 +7,11 @@
       setSelcted((selected)=>(selected+num+images.length)%images.length)
     }
     useEffect(()=>{
+       console.log(" טיימר חדש ", selected);
       const timer=setInterval(()=>{
          Move(1)},intervalSeconde*1000)
-         return () =>clearInterval(timer)},[images.length,intervalSeconde])
+       return () => clearInterval(timer)
+    }, [selected,intervalSeconde,images.length])
     
 
  return(
