@@ -1,5 +1,6 @@
- import React, { useEffect,useState } from "react";
+ import  { useEffect,useState } from "react";
  import CarouselItem from "./CarouselItem";
+ 
  function Carousel({images,intervalSeconde=3}){
     const [selected, setSelcted] = useState(0)
 

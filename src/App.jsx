@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from "react";
-import Carousel from "./Carousel/Carousel";
+import  { useState } from "react";
+import Carousel from "./Carouselas/Carousel";
 import RecipesCarousel from "./RecipesCarousel/RecipesCarousel"
 const images=[
 "https://picsum.photos/id/10/600/400",
@@ -9,8 +9,10 @@ const images=[
 function App() {
 
   const [showRecipes, setShowRecipes] = useState(true);
+
   return (<div>
-  <Carousel images={images} intervalSeconds={3} />;
+  <Carousel images={images} intervalSeconds={3} />
+    {showRecipes && <RecipesCarousel />}
 
 </div>)}
 export default App;

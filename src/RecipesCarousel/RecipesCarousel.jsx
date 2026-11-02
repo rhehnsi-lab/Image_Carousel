@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"; // ייבוא של ספריית axios
-import Carousel from "../Carousel/Carousel";
+import Carousel from "../Carouselas/Carousel";
 
 function RecipesCarousel() {
     const [images, setImages] = useState([]);
