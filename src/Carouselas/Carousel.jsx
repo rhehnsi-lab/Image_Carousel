@@ -6,8 +6,9 @@
  return(
     <> 
          {imeges.map((img,index)=>(
+            index===selected&&
              < CarouselItem 
-              key={index} src={img} alt={index}
+              key={index} src={img} alt={index+1}
                />))}
                
         </>
