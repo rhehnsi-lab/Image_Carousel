@@ -8,3 +8,4 @@ function CarouselItem ({src,alt}){
         </div>
     )
 }
+export default CarouselItem
