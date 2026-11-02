@@ -1,39 +1,42 @@
- import  { useEffect,useState } from "react";
- import CarouselItem from "./CarouselItem";
- 
- function Carousel({images,intervalSeconde=3}){
-    const [selected, setSelcted] = useState(0)
+import { useEffect, useState } from "react";
+import CarouselItem from "./CarouselItem";
 
-    function Move(num){
-      setSelcted((selected)=>(selected+num+images.length)%images.length)
-    }
-    useEffect(()=>{
-       console.log(" טיימר חדש ", selected);
-      const timer=setInterval(()=>{
-         Move(1)},intervalSeconde*1000)
-       return () => clearInterval(timer)
-    }, [selected,intervalSeconde,images.length])
-    
+function Carousel({ images, intervalSeconds = 3 }) {
+   const [selected, setSelected] = useState(0);
 
- return(
-    <>
-     <button onClick={() => move(-1)}>{"<"}</button>
-         {imeges.map((img,index)=>(
-            index===selected&&
-             < CarouselItem 
-              key={index} src={img} alt={index+1}
-              
-               />))}
-       <button onClick={() => move(1)}>{">"}</button>
+   function move(num) {
+      setSelected((prev) => (prev + num + images.length) % images.length);
+   }
 
-               {images.map((_,index)=>(
-                  <button key={index} onClick={()=>setSelcted(index)}
-                  className={index===selected&&"activ"}
-                  />
-               ))}
-              
-               
-        </>
- )
+   useEffect(() => {
+      const timer = setInterval(() => {
+         setSelected((prev) => (prev + 1) % images.length);
+      }, intervalSeconds * 1000);
+
+      return () => clearInterval(timer);
+   }, [selected, intervalSeconds, images.length]);
+
+   return (
+      <>
+         <button onClick={() => move(-1)}>{"<"}</button>
+
+         {images.map((img, index) =>
+            index === selected && (
+               <CarouselItem key={index} src={img} alt={`תמונה ${index + 1}`} />
+            )
+         )}
+
+         <button onClick={() => move(1)}>{">"}</button>
+
+         {images.map((_, index) => (
+            <button
+               key={index}
+               onClick={() => setSelected(index)}
+               className={index === selected ? "active" : ""}
+            />
+         ))}
+      </>
+   );
 }
-export default Carousel
+
+export default Carousel;
