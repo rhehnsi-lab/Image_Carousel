@@ -1,14 +1,16 @@
+import React, { useState, useEffect } from "react";
 import Carousel from "./Carousel/Carousel";
-
-const images = [
-  "https://placehold.co/800x450/4f46e5/ffffff?text=1",
-  "https://placehold.co/800x450/0ea5e9/ffffff?text=2",
-  "https://placehold.co/800x450/10b981/ffffff?text=3",
-  "https://placehold.co/800x450/f59e0b/ffffff?text=4",
-];
-
+import RecipesCarousel from "./RecipesCarousel/RecipesCarousel"
+const images=[
+"https://picsum.photos/id/10/600/400",
+  "https://picsum.photos/id/20/600/400",
+  "https://picsum.photos/id/30/600/400",
+  ];
 function App() {
-  return <Carousel images={images} intervalSeconds={3} />;
-}
 
+  const [showRecipes, setShowRecipes] = useState(true);
+  return (<div>
+  <Carousel images={images} intervalSeconds={3} />;
+
+</div>)}
 export default App;
