@@ -10,6 +10,12 @@
              < CarouselItem 
               key={index} src={img} alt={index+1}
                />))}
+               {images.map((_,index)=>(
+                  <button key={index} onClick={()=>setSelcted(index)}
+                  className={index===selected&&"activ"}
+                  />
+               ))}
+              
                
         </>
  )
